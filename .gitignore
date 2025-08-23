@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Optional npm cache
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Build outputs
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/

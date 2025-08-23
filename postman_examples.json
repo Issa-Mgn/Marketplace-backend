@@ -1,0 +1,400 @@
+{
+  "info": {
+    "name": "Marketplace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "Create Article",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 12\",\n  \"category\": \"Téléphones\",\n  \"price\": 799.99,\n  \"description\": \"Dernier modèle iPhone\",\n  \"whatsappNumber\": \"+33123456789\",\n  \"additionalDetails\": \"64GB, Noir\",\n  \"imageUrls\": [\n    \"https://example.com/image1.jpg\",\n    \"https://example.com/image2.jpg\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/articles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "articles"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Article by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/articles/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "articles", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Article",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 12 Pro\",\n  \"price\": 899.99\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/articles/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "articles", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Article",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/articles/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "articles", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Articles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/articles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "articles"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Favorites",
+      "item": [
+        {
+          "name": "Add to Favorites",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/favorites/:articleId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "favorites", ":articleId"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove from Favorites",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/favorites/:articleId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "favorites", ":articleId"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Favorites",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/favorites",
+              "host": ["{{base_url}}"],
+              "path": ["api", "favorites"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check if Favorite",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/favorites/:articleId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "favorites", ":articleId"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove All Favorites",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/favorites",
+              "host": ["{{base_url}}"],
+              "path": ["api", "favorites"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search Articles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/search?q=iPhone&category=Téléphones",
+              "host": ["{{base_url}}"],
+              "path": ["api", "search"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "iPhone"
+                },
+                {
+                  "key": "category",
+                  "value": "Téléphones"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ratings",
+      "item": [
+        {
+          "name": "Rate Article",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/ratings/:articleId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "ratings", ":articleId"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Article Ratings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ratings/:articleId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "ratings", ":articleId"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Rating",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/ratings/:articleId/user",
+              "host": ["{{base_url}}"],
+              "path": ["api", "ratings", ":articleId", "user"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/orders/:articleId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders", ":articleId"],
+              "variable": [
+                {
+                  "key": "articleId",
+                  "value": "article-id-here"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User Orders",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-User-Id",
+                "value": "user-uuid-here"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
