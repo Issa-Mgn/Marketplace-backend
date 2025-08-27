@@ -1,3 +1,4 @@
+const imagekitAuthRouter = require('./src/routes/imagekitAuth');
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
@@ -31,6 +32,7 @@ app.use('/api/favorites', require('./src/routes/favorites'));
 app.use('/api/search', require('./src/routes/search'));
 app.use('/api/ratings', require('./src/routes/ratings'));
 app.use('/api/orders', require('./src/routes/orders'));
+app.use('/api/imagekit-auth', imagekitAuthRouter);
 
 // Start server
 app.listen(PORT, () => {
